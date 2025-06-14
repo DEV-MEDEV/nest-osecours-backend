@@ -54,20 +54,6 @@ async function bootstrap() {
     const host = process.env.HOST || '0.0.0.0';
 
     await app.listen(port, host);
-
-    // Messages de démarrage
-    logger.log(`🚀 Application O'Secours démarrée avec succès`);
-    logger.log(
-      `🌍 Serveur en écoute sur: http://${host === '0.0.0.0' ? 'localhost' : host}:${port}`,
-    );
-    logger.log(
-      `📊 API accessible sur: http://${host === '0.0.0.0' ? 'localhost' : host}:${port}/api/v1`,
-    );
-    logger.log(
-      `📚 Documentation Swagger: http://${host === '0.0.0.0' ? 'localhost' : host}:${port}/api/docs`,
-    );
-    logger.log(`🔧 Environnement: ${environment || 'development'}`);
-    logger.log(`📦 Version Node.js: ${process.version}`);
   } catch (error) {
     logger.error("❌ Erreur lors du démarrage de l'application:", error);
     process.exit(1);
