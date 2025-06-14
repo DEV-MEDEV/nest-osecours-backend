@@ -1,0 +1,12 @@
+#!/bin/sh
+commit_regex='^(feat|fix|docs|style|refactor|test|chore|db|api)\(.+\): .{1,50}$'
+
+if ! grep -qE "$commit_regex" "$1"; then
+    echo "❌ Format de commit invalide!"
+    echo "📝 Utilisez: <type>(<scope>): <description>"
+    echo "📋 Types: feat, fix, docs, style, refactor, test, chore, db, api"
+    echo "📏 Description: 1-50 caractères"
+    echo ""
+    echo "✅ Exemple: feat(auth): add JWT authentication"
+    exit 1
+fi
